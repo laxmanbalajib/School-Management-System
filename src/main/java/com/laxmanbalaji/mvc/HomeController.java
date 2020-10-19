@@ -12,6 +12,7 @@ import com.laxmanbalaji.mvc.repo.CourseRepo;
 import com.laxmanbalaji.mvc.repo.EarnRepo;
 import com.laxmanbalaji.mvc.repo.StaffRepo;
 
+
 @Controller
 public class HomeController {
 
@@ -25,21 +26,11 @@ public class HomeController {
 	@Autowired
 	EarnRepo earnRepo;
 
-	/*
-	 * "Balaji"); }
-	 */
-
 	@RequestMapping("/")
 	public String home() {
 		System.out.println("Home page is requested...");
 		return "index";
 	}
-	/*
-	 * @PostMapping("addAlien3") public String
-	 * addAlien3(@ModelAttribute("modelName") Alien a) {
-	 * 
-	 * repo.save(a); return "result"; }
-	 */
 
 	@RequestMapping("getStaffs")
 	public String getStaffs(Model m) {
@@ -62,7 +53,7 @@ public class HomeController {
 	public String getStaffById(@RequestParam int id, Model m) {
 		System.out.println("Requested a staff by Id..");
 
-		m.addAttribute("staffs", earnRepo.getOne(id));
+		m.addAttribute("staffs", earnRepo.getAllEarnByStaffId(id));
 		return "showStaffs";
 	}
 	
@@ -78,7 +69,7 @@ public class HomeController {
 	public String getStaffByCourseNumber(@RequestParam String courseNumber, Model m) {
 		System.out.println("Requested a courses by Course Number...");
 
-		m.addAttribute("course", courseRepo.getOne(courseNumber));
+		//m.addAttribute("course", sqlRepo.getAll());
 		m.addAttribute("staffs", courseRepo.getOne(courseNumber).getStaffs());
 		m.addAttribute("students", courseRepo.getOne(courseNumber).getStudents());
 		return "showCoursesAndStaffs";
