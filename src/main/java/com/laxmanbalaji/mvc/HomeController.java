@@ -48,6 +48,17 @@ public class HomeController {
 		m.addAttribute("courses", courseRepo.findAll());
 		return "showCourses";
 	}
+	
+	
+	@RequestMapping("addEarning")
+	public String addEarning(@RequestParam int staffId, @RequestParam int salary, Model m) {
+		System.out.println("Requested all courses...");
+
+		earnRepo.updateEarning(staffId, salary);
+		m.addAttribute("staffs", earnRepo.getAllEarnByStaffId(staffId));
+		//m.addAttribute("courses", courseRepo.findAll());
+		return "showStaffs";
+	}
 
 	@GetMapping("getStaffById")
 	public String getStaffById(@RequestParam int id, Model m) {

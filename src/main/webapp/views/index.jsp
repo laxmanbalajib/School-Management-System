@@ -14,6 +14,13 @@
 		<button type="submit">Submit</button>
 	</form>
 
+
+	<form action="addEarning" method="post">
+		Enter Staff Id: <input type="text" name="staffId"><br> 
+		Enter Salary: <input type="text" name="salary">
+		<button type="submit">Submit</button>
+	</form>
+
 	<form action="getStaffById" method="get">
 		Enter staff id: <input type="text" name="id">
 		<button type="submit">Submit</button>
