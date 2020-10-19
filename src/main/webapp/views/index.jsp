@@ -10,16 +10,25 @@
 	<p>Hello world</p>
 	<form action="addAlien3" method="post">
 		Enter name: <input type="text" name="name"><br> Enter
-		age: <input type="text" name="age"> <input type="submit">
+		age: <input type="text" name="age">
+		<button type="submit">Submit</button>
 	</form>
 
 	<form action="getStaffById" method="get">
-		Enter staff id: <input type="text" name="id"> <input type="submit">
+		Enter staff id: <input type="text" name="id">
+		<button type="submit">Submit</button>
 	</form>
 
-	<form action="getAlienByName" method="get">
-		Enter name: <input type="text" name="name"> <input type="submit">
+	<form action="getStaffByName" method="get">
+		Enter name: <input type="text" name="name">
+		<button type="submit">Submit</button>
 	</form>
+
+	<form action="getCourseByNumber" method="get">
+		Enter courseNumber: <input type="text" name="courseNumber">
+		<button type="submit">Submit</button>
+	</form>
+	
 </body>
 
 </html>
