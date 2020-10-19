@@ -11,6 +11,7 @@
 	<br>
 	<p>${course}</p>
 	<p>${staffs}</p>
+	<p>${students}</p>
 </body>
 
 </html>

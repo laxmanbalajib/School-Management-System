@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.laxmanbalaji.mvc.repo.CourseRepo;
+import com.laxmanbalaji.mvc.repo.EarnRepo;
 import com.laxmanbalaji.mvc.repo.StaffRepo;
 
 @Controller
@@ -19,9 +20,12 @@ public class HomeController {
 	
 	@Autowired
 	CourseRepo courseRepo;
+	
+	
+	@Autowired
+	EarnRepo earnRepo;
 
 	/*
-	 * @ModelAttribute public void modelData(Model m) { m.addAttribute("dataName",
 	 * "Balaji"); }
 	 */
 
@@ -58,7 +62,7 @@ public class HomeController {
 	public String getStaffById(@RequestParam int id, Model m) {
 		System.out.println("Requested a staff by Id..");
 
-		m.addAttribute("staffs", staffRepo.getOne(id));
+		m.addAttribute("staffs", earnRepo.getOne(id));
 		return "showStaffs";
 	}
 	
@@ -76,6 +80,7 @@ public class HomeController {
 
 		m.addAttribute("course", courseRepo.getOne(courseNumber));
 		m.addAttribute("staffs", courseRepo.getOne(courseNumber).getStaffs());
+		m.addAttribute("students", courseRepo.getOne(courseNumber).getStudents());
 		return "showCoursesAndStaffs";
 	}
 

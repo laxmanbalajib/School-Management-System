@@ -9,14 +9,12 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.JoinColumn;
 
 @Entity
-@Table(name = "Staff")
-public class Staff {
+@Table(name = "Student")
+public class Student {
 
 	@Id
 	private int id;
@@ -25,39 +23,24 @@ public class Staff {
 	private String gender;
 
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-	@JoinTable(name = "Teach", joinColumns = {
-			@JoinColumn(name = "staffId", referencedColumnName = "id", nullable = false, updatable = false) }, inverseJoinColumns = {
+	@JoinTable(name = "Attend", joinColumns = {
+			@JoinColumn(name = "studentId", referencedColumnName = "id", nullable = false, updatable = false) }, inverseJoinColumns = {
 					@JoinColumn(name = "courseNumber", referencedColumnName = "courseNumber", nullable = false, updatable = false) })
 	private Set<Course> courses = new HashSet<>(); // use this name in mapping
 
-    @OneToOne(mappedBy = "staff")
-    private Earn earning;
-	
-	public Earn getEarning() {
-		return earning;
+	public Student() {
 	}
 
-	public Staff() {
-	}
-
-	public Staff(int id, String name, String gender) {
+	public Student(int id, String name, String gender) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.gender = gender;
 	}
 
-	/*
-	 * @ManyToMany
-	 * 
-	 * @JoinTable(name="person_exam", joinColumns=@JoinColumn(name="personId"),
-	 * inverseJoinColumns=@JoinColumn(name="examId")) private Collection<Exams>
-	 * exams;
-	 */
-
 	@Override
 	public String toString() {
-		return "Staff [id=" + id + ", name=" + name + ", gender=" + gender + "]";
+		return "Student [id=" + id + ", name=" + name + ", gender=" + gender +"]";
 	}
 
 }
