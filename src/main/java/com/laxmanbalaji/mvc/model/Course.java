@@ -1,7 +1,12 @@
 package com.laxmanbalaji.mvc.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -12,6 +17,14 @@ public class Course {
 	private String courseNumber;
 	
 	private String courseName;
+	
+    @ManyToMany(mappedBy = "courses", fetch = FetchType.LAZY)
+    private Set<Staff> staffs = new HashSet<>();
+
+
+	public Set<Staff> getStaffs() {
+		return staffs;
+	}
 
 
 	public Course() {

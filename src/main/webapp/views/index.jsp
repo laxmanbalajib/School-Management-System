@@ -28,7 +28,12 @@
 		Enter courseNumber: <input type="text" name="courseNumber">
 		<button type="submit">Submit</button>
 	</form>
-	
+
+	<form action="getStaffByCourseNumber" method="get">
+		find staffs by courseNumber: <input type="text" name="courseNumber">
+		<button type="submit">Submit</button>
+	</form>
+
 </body>
 
 </html>

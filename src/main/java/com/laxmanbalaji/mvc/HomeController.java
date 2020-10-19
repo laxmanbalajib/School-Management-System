@@ -69,6 +69,15 @@ public class HomeController {
 		m.addAttribute("courses", courseRepo.getOne(courseNumber));
 		return "showCourses";
 	}
+	
+	@GetMapping("getStaffByCourseNumber")
+	public String getStaffByCourseNumber(@RequestParam String courseNumber, Model m) {
+		System.out.println("Requested a courses by Course Number...");
+
+		m.addAttribute("course", courseRepo.getOne(courseNumber));
+		m.addAttribute("staffs", courseRepo.getOne(courseNumber).getStaffs());
+		return "showCoursesAndStaffs";
+	}
 
 	/*
 	 * @GetMapping("getAlienByName") public String getAlien(@RequestParam String
