@@ -8,7 +8,7 @@
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	rel="stylesheet">
-<title>Insert title here</title>
+<title>Student Info</title>
 <SCRIPT LANGUAGE="JavaScript">
 	function checker() {
 		result = document.form1.studentId.value;
@@ -52,7 +52,14 @@
 						<button type="submit" class="btn btn-primary">Submit</button>
 					</form>
 					</p>
+					<p class="card-text">
+					<form action="student/addStudentForm">
 
+						<button type="submit" class="btn btn-primary">Form for
+							adding a new Student</button>
+					</form>
+
+					</p>
 
 				</div>
 			</div>

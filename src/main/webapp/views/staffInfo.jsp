@@ -37,6 +37,14 @@
 						<button type="submit" class="btn btn-primary">Submit</button>
 					</form>
 					</p>
+					<p class="card-text">
+					<form action="staff/addStaffForm">
+
+						<button type="submit" class="btn btn-primary">Form for
+							adding a new Staff</button>
+					</form>
+
+					</p>
 
 				</div>
 			</div>
