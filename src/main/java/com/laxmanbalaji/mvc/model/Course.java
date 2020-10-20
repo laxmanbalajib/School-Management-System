@@ -13,6 +13,11 @@ import javax.persistence.Table;
 @Table(name = "Course")
 public class Course {
 
+	@Override
+	public String toString() {
+		return "Course [courseNumber=" + courseNumber + ", courseName=" + courseName + ", courseFee=" + courseFee + "]";
+	}
+
 	@Id
 	private String courseNumber;
 

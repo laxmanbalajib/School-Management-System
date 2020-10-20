@@ -29,7 +29,6 @@
 </SCRIPT>
 </head>
 <body>
-
 	<div
 		style="position: absolute; top: 150px; bottom: 0; left: 0; right: 0; margin: auto;">
 		<p class=" d-flex justify-content-center"
@@ -44,8 +43,8 @@
 		<div class="container">
 			<div class="card border-primary mb-3">
 				<div class="card-body">
-					<h4 class="card-title d-flex justify-content-center">UPDATE STUDENT
-						FORM</h4>
+					<h4 class="card-title d-flex justify-content-center">REGISTER
+						STUDENT FORM</h4>
 					<p class="card-text">
 					<form action="/student/findAllStudents" method="post">
 						<button type="submit" class="btn btn-primary">Show All
@@ -53,18 +52,36 @@
 					</form>
 					</p>
 					<p class="card-text">
-					<form name="addStudent" action="/student/updateStudentForm/submit"
+					<form name="addStudent" action="/student/register/submit"
 						method="post" onsubmit="return checker();">
 						Enter Student Id: <input type="text" name="studentId"><br>
 						Enter Student Name: <input type="text" name="studentName"><br>
-						Gender: <select name="gender">
-							<option>Male</option>
-							<option>Female</option>
-							<option>Transgender</option>
-							<option>Non Binary</option>
-						</select> <br>
-						<button type="submit" class="btn btn-primary my-3">UPDATE
-							Student</button>
+						Courses:
+						<table class="table table-striped table-bordered">
+							<thead>
+								<tr>
+									<th scope="col">Register</th>
+									<th scope="col">Course Number</th>
+									<th scope="col">Course Name</th>
+									<th scope="col">Course Fee</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="course" items="${courses}">
+									<tr>
+										<td><input type="checkbox" name="coursesChosen"
+											value="${course.getCourseNumber()}"></td>
+										<td>${course.getCourseNumber()}</td>
+										<td>${course.getCourseName()}</td>
+										<td>${course.getCourseFee()}</td>
+
+									</tr>
+								</c:forEach>
+
+							</tbody>
+						</table>
+						<br>
+						<button type="submit" class="btn btn-primary my-3">Register</button>
 					</form>
 					</p>
 				</div>

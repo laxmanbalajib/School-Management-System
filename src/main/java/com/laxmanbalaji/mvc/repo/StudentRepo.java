@@ -37,4 +37,22 @@ public interface StudentRepo extends CrudRepository<Student, Integer> {
 	@Query(value = "UPDATE Student SET gender = :gender, name = :studentName WHERE id = :studentId", nativeQuery = true)
 	@Transactional
 	void updateStudent(int studentId, String studentName, String gender);
+
+	@Modifying
+	@Query(value = "INSERT INTO Attend(courseNumber, studentId) VALUES(:courseNumber, :studentId)", nativeQuery = true)
+	@Transactional
+	void registerCourse(int studentId, String courseNumber);
+	
+	@Modifying
+	@Query(value = "DELETE FROM Attend WHERE studentId = :studentId AND courseNumber = :courseNumber", nativeQuery = true)
+	@Transactional
+	void unregisterCourse(int studentId, String courseNumber);
+	
+	@Query(value = "SELECT SUM(courseFee) FROM Course, Attend  WHERE Attend.courseNumber = Course.courseNumber AND Attend.studentId = :studentId", nativeQuery = true)
+	int calculateTuition(int studentId);
+	
+	@Modifying
+	@Query(value = "UPDATE TuitionFee SET tuition = :tuition,paid = :paid WHERE studentId = :studentId", nativeQuery = true)
+	@Transactional
+	void updateTuition(int studentId, int tuition, String paid);
 }

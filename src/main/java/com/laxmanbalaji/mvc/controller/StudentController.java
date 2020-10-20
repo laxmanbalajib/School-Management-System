@@ -22,6 +22,9 @@ public class StudentController {
 	@Autowired
 	StudentRepo studentRepo;
 
+	@Autowired
+	CourseRepo courseRepo;
+
 	@RequestMapping("")
 	public String home() {
 		System.out.println("Student Home page is requested...");
@@ -50,7 +53,7 @@ public class StudentController {
 		System.out.println("Requested courses by  Student ID...");
 
 		List<CourseAndStudent> courses = studentRepo.getCourses(studentId);
-		
+
 		m.addAttribute("hide", 2);
 		m.addAttribute("studentName", studentName);
 		m.addAttribute("studentId", studentId);
@@ -72,6 +75,40 @@ public class StudentController {
 		return "addStudent";
 	}
 
+	@RequestMapping("/register")
+	public String addStudentRegister(Model m) {
+		System.out.println("Student Form is requested...");
+		m.addAttribute("courses", courseRepo.getAllCourses());
+		return "studentCourseRegister";
+	}
+
+	@RequestMapping("/register/submit")
+	public String updateStudentCourse(@RequestParam String[] coursesChosen, @RequestParam String studentName,
+			@RequestParam int studentId, Model m) {
+		System.out.println("Student Form is requested...");
+		m.addAttribute("courses", courseRepo.getAllCourses());
+		try {
+			List<CourseAndStudent> courses = studentRepo.getCourses(studentId);
+			for (int i = 0; i < courses.size(); i++) {
+				studentRepo.unregisterCourse(studentId, courses.get(i).getCourseNumber());
+			}
+
+			for (int i = 0; i < coursesChosen.length; i++) {
+				studentRepo.registerCourse(studentId, coursesChosen[i]);
+			}
+			int tuition = studentRepo.calculateTuition(studentId);
+			System.out.println("tuition " + tuition);
+
+			studentRepo.updateTuition(studentId, tuition, "True");
+			m.addAttribute("submission", 2);
+			return "studentCourseRegister";
+		} catch (Exception e) {
+			m.addAttribute("submission", 1);
+			return "studentCourseRegister";
+		}
+
+	}
+
 	@RequestMapping("/addStudentForm/submit")
 	public String addStudent(@RequestParam String gender, @RequestParam String studentName, @RequestParam int studentId,
 			Model m) {
@@ -85,16 +122,16 @@ public class StudentController {
 		m.addAttribute("submission", 2);
 		return "addStudent";
 	}
-	
+
 	@RequestMapping("/updateStudentForm")
 	public String updateStudentForm() {
 		System.out.println("Student Form is requested...");
 		return "updateStudentInfo";
 	}
-	
+
 	@RequestMapping("/updateStudentForm/submit")
-	public String updateStudent(@RequestParam String gender, @RequestParam String studentName, @RequestParam int studentId,
-			Model m) {
+	public String updateStudent(@RequestParam String gender, @RequestParam String studentName,
+			@RequestParam int studentId, Model m) {
 		System.out.println("Student Form is requested...");
 		try {
 			studentRepo.updateStudent(studentId, studentName, gender);

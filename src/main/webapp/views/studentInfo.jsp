@@ -53,7 +53,7 @@
 					</form>
 					</p>
 					<p class="card-text">
-					<form action="student/addStudentForm">
+					<form action="/student/addStudentForm">
 
 						<button type="submit" class="btn btn-primary">Form for
 							adding a new Student</button>
@@ -62,13 +62,20 @@
 					</p>
 
 					<p class="card-text">
-					<form action="student/updateStudentForm">
+					<form action="/student/updateStudentForm">
 
 						<button type="submit" class="btn btn-primary">Form for updating Student</button>
 					</form>
 
 					</p>
+					
+					<p class="card-text">
+					<form action="/student/register">
 
+						<button type="submit" class="btn btn-primary">Form for registering course</button>
+					</form>
+
+					</p>
 
 				</div>
 			</div>
