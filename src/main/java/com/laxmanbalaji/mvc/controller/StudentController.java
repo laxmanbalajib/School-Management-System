@@ -12,14 +12,13 @@ import com.laxmanbalaji.mvc.repo.CourseRepo;
 import com.laxmanbalaji.mvc.repo.EarnRepo;
 import com.laxmanbalaji.mvc.repo.StudentRepo;
 
-
 @Controller
 @RequestMapping("student")
 public class StudentController {
 
 	@Autowired
 	StudentRepo studentRepo;
-	
+
 	@RequestMapping("")
 	public String home() {
 		System.out.println("Student Home page is requested...");
@@ -33,7 +32,7 @@ public class StudentController {
 		m.addAttribute("students", studentRepo.getAllStudents());
 		return "showStudents";
 	}
-	
+
 	@RequestMapping("/findStudentById")
 	public String getstudentById(@RequestParam int studentId, Model m) {
 		System.out.println("Requested student by ID...");
@@ -41,15 +40,21 @@ public class StudentController {
 		m.addAttribute("student", studentRepo.getStudentById(studentId));
 		return "studentInfo";
 	}
-	
+
+	@RequestMapping("/findAllStudentsTuition")
+	public String getstudentsTuition(Model m) {
+		System.out.println("Requested all students...");
+
+		m.addAttribute("students", studentRepo.getTuition());
+		return "showStudentsTotal";
+	}
 	/*
-	@RequestMapping("/findstudentBySalary")
-	public String getstudentBySalary(@RequestParam int salaryStart, @RequestParam int salaryEnd, Model m) {
-		System.out.println("Requested student by Salary...");
-		m.addAttribute("hide", 1);
-		m.addAttribute("salaryStart", salaryStart);
-		m.addAttribute("salaryEnd", salaryEnd);
-		m.addAttribute("students", studentRepo.getstudentBySalary(salaryStart, salaryEnd));
-		return "showstudents";
-	} */
+	 * @RequestMapping("/findstudentBySalary") public String
+	 * getstudentBySalary(@RequestParam int salaryStart, @RequestParam int
+	 * salaryEnd, Model m) { System.out.println("Requested student by Salary...");
+	 * m.addAttribute("hide", 1); m.addAttribute("salaryStart", salaryStart);
+	 * m.addAttribute("salaryEnd", salaryEnd); m.addAttribute("students",
+	 * studentRepo.getstudentBySalary(salaryStart, salaryEnd)); return
+	 * "showstudents"; }
+	 */
 }

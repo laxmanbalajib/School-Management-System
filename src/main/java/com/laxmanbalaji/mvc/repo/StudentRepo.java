@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
+import com.laxmanbalaji.mvc.interfaces.StudentAndTuition;
 import com.laxmanbalaji.mvc.model.Student;
 
 public interface StudentRepo extends CrudRepository<Student, Integer>{
@@ -17,4 +18,8 @@ public interface StudentRepo extends CrudRepository<Student, Integer>{
 	
 	@Query(value = "SELECT * FROM Staff,Earn WHERE Earn.salary >= :salaryStart AND Earn.salary <= :salaryEnd  AND Earn.staffId = Staff.id", nativeQuery = true)
 	List<Student> getStaffBySalary(int salaryStart, int salaryEnd);
+	
+	
+	@Query(value = "SELECT id, name, tuition, paid FROM Student,TuitionFee WHERE Student.id = TuitionFee.studentId", nativeQuery = true)
+	List<StudentAndTuition> getTuition();
 }

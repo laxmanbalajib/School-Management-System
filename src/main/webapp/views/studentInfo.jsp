@@ -22,6 +22,12 @@
 						Student</button>
 				</form>
 				</p>
+				<p class="card-text">
+				<form action="/student/findAllStudentsTuition" method="post">
+					<button type="submit" class="btn btn-primary">Show All
+						Student Tuition Info</button>
+				</form>
+				</p>
 
 			</div>
 		</div>
