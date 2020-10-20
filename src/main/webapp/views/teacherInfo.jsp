@@ -42,7 +42,7 @@
 	</c:if>
 
 	<form action="/teacher/findStaffBySalary" method="post">
-		Enter salary: <input type="text" name="salary"><br>
+		Enter salary range: <input type="text" name="salaryStart"> to  <input type="text" name="salaryEnd"><br>
 		<button type="submit" class="btn btn-primary">Submit</button>
 	</form>
 

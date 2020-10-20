@@ -34,7 +34,6 @@ public class TeacherController {
 		return "showStaffs";
 	}
 	
-	
 	@RequestMapping("/findStaffById")
 	public String getStaffById(@RequestParam int staffId, Model m) {
 		System.out.println("Requested staff by ID...");
@@ -44,9 +43,9 @@ public class TeacherController {
 	}
 	
 	@RequestMapping("/findStaffBySalary")
-	public String getStaffBySalary(@RequestParam int salary, Model m) {
+	public String getStaffBySalary(@RequestParam int salaryStart, @RequestParam int salaryEnd, Model m) {
 		System.out.println("Requested staff by ID...");
-		m.addAttribute("staffs", staffRepo.getStaffBySalary(salary));
+		m.addAttribute("staffs", staffRepo.getStaffBySalary(salaryStart, salaryEnd));
 		return "showStaffs";
 	}
 }

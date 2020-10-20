@@ -14,6 +14,6 @@ public interface StaffRepo extends CrudRepository<Staff, Integer>{
 	@Query(value = "SELECT * FROM Staff WHERE id = :staffId", nativeQuery = true)
 	Staff getStaffById(int staffId);
 	
-	@Query(value = "SELECT * FROM Staff,Earn WHERE Earn.salary = :salary AND Earn.staffId = Staff.id", nativeQuery = true)
-	List<Staff> getStaffBySalary(int salary);
+	@Query(value = "SELECT * FROM Staff,Earn WHERE Earn.salary >= :salaryStart AND Earn.salary <= :salaryEnd  AND Earn.staffId = Staff.id", nativeQuery = true)
+	List<Staff> getStaffBySalary(int salaryStart, int salaryEnd);
 }
