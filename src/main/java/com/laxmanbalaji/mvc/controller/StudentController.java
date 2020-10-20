@@ -34,7 +34,7 @@ public class StudentController {
 	}
 
 	@RequestMapping("/findStudentById")
-	public String getstudentById(@RequestParam int studentId, Model m) {
+	public String getstudentById(@RequestParam int studentId, Model m) {	
 		System.out.println("Requested student by ID...");
 		m.addAttribute("hide", 1);
 		m.addAttribute("student", studentRepo.getStudentById(studentId));

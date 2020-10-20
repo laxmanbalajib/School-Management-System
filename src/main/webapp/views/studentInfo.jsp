@@ -9,6 +9,24 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	rel="stylesheet">
 <title>Insert title here</title>
+        <SCRIPT LANGUAGE="JavaScript">
+
+
+            function checker()
+            {           	
+            	result = document.form1.studentId.value;
+            	var integer = parseInt(result);
+                if (!Number.isInteger(integer)) {
+                    alert("Sorry, that's not a valid student Id.")
+                    return false
+                } else {
+                    document.form1.submit()
+                }
+            	
+            	
+            }
+           
+        </SCRIPT>
 </head>
 <body>
 	<div class="container">
@@ -34,7 +52,8 @@
 	</div>
 
 
-	<form action="/student/findStudentById" method="post">
+	<form name = "form1" action="/student/findStudentById" method="post"
+		onsubmit="return checker();">
 		Enter Student Id: <input type="text" name="studentId"><br>
 		<button type="submit" class="btn btn-primary">Submit</button>
 	</form>
@@ -60,12 +79,13 @@
 		</table>
 	</c:if>
 
-	<form action="/student/findStudentBySalary" method="post">
+	<form  name="myform" action="/student/findStudentBySalary" method="post">
 		Enter salary range: <input type="text" name="salaryStart"> to
 		<input type="text" name="salaryEnd"><br>
 		<button type="submit" class="btn btn-primary">Submit</button>
 	</form>
 
 </body>
+
 
 </html>
