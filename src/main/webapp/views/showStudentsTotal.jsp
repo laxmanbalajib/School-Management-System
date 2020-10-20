@@ -11,6 +11,7 @@
 <title>Table of All Students</title>
 </head>
 <body>
+
 	<div class="container">
 		<div class="card">
 			<div class="card-body">
@@ -25,7 +26,12 @@
 		</div>
 	</div>
 	<br>
-
+	<div class="d-flex justify-content-end">
+		<form action="/student">
+			<button type="submit" class="btn btn-primary">Back</button>
+		</form>
+	</div>
+	<br>
 	<table class="table table-striped table-bordered">
 		<thead>
 			<tr>
@@ -47,6 +53,12 @@
 
 		</tbody>
 	</table>
+	<br>
+	<div class="d-flex justify-content-end">
+		<form action="/student">
+			<button type="submit" class="btn btn-primary">Back</button>
+		</form>
+	</div>
 </body>
 
 </html>
