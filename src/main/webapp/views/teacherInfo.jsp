@@ -11,9 +11,21 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="/teacher/findAllStaff" method="post">
-		<button type="submit" class="btn btn-primary">Show All Staff</button>
-	</form>
+	<div class="container">
+		<div class="card">
+			<div class="card-body">
+				<h4 class="card-title d-flex justify-content-center">STAFF INFO PAGE</h4>
+				<p class="card-text">
+				<form action="/teacher/findAllStaff" method="post">
+					<button type="submit" class="btn btn-primary">Show All
+						Staff</button>
+				</form>
+				</p>
+
+			</div>
+		</div>
+	</div>
+
 
 	<form action="/teacher/findStaffById" method="post">
 		Enter Staff Id: <input type="text" name="staffId"><br>
@@ -42,26 +54,10 @@
 	</c:if>
 
 	<form action="/teacher/findStaffBySalary" method="post">
-		Enter salary range: <input type="text" name="salaryStart"> to  <input type="text" name="salaryEnd"><br>
+		Enter salary range: <input type="text" name="salaryStart"> to
+		<input type="text" name="salaryEnd"><br>
 		<button type="submit" class="btn btn-primary">Submit</button>
 	</form>
-
-	<form action="addEarning" method="post">
-		Enter Staff Id: <input type="text" name="staffId"><br>
-		Enter Salary: <input type="text" name="salary">
-		<button type="submit">Submit</button>
-	</form>
-
-	<form action="getStaffById" method="get">
-		Enter staff id: <input type="text" name="id">
-		<button type="submit">Submit</button>
-	</form>
-
-	<form action="getStaffByName" method="get">
-		Enter name: <input type="text" name="name">
-		<button type="submit">Submit</button>
-	</form>
-
 
 </body>
 

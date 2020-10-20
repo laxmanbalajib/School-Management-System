@@ -11,6 +11,15 @@
 <title>Table of All Staffs</title>
 </head>
 <body>
+	<div class="container">
+		<div class="card">
+			<div class="card-body">
+				<h4 class="card-title d-flex justify-content-center">ALL STAFFS REGISTERED IN THE DATABASE</h4>
+				
+				<c:if test="${hide == 1}"> <p class="card-text d-flex justify-content-center">Salary Range: ${salaryStart} To ${salaryEnd}</p></c:if>
+			</div>
+		</div>
+	</div>
 	<br>
 	<table class="table table-striped table-bordered">
 		<thead>
