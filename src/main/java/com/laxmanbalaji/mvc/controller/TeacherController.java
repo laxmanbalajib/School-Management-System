@@ -38,8 +38,8 @@ public class TeacherController {
 	@RequestMapping("/findStaffById")
 	public String getStaffById(@RequestParam int staffId, Model m) {
 		System.out.println("Requested staff by ID...");
-
-		m.addAttribute("staffs", staffRepo.getStaffById(staffId));
-		return "showStaffs";
+		m.addAttribute("hide", 1);
+		m.addAttribute("staff", staffRepo.getStaffById(staffId));
+		return "teacherInfo";
 	}
 }
