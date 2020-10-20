@@ -23,7 +23,7 @@
 				</form>
 				</p>
 				<p class="card-text">
-				<form action="/student/findAllStudentsTuition" method="post">
+				<form action="/student/findAllStudents/Tuition" method="post">
 					<button type="submit" class="btn btn-primary">Show All
 						Student Tuition Info</button>
 				</form>

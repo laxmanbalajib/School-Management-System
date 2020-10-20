@@ -41,7 +41,7 @@ public class StudentController {
 		return "studentInfo";
 	}
 
-	@RequestMapping("/findAllStudentsTuition")
+	@RequestMapping("/findAllStudents/Tuition")
 	public String getstudentsTuition(Model m) {
 		System.out.println("Requested all students...");
 
