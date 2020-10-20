@@ -12,7 +12,6 @@
 </head>
 <body>
 	<br>
-
 	<table class="table table-striped table-bordered">
 		<thead>
 			<tr>

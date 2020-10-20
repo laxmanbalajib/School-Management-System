@@ -41,6 +41,10 @@
 		</table>
 	</c:if>
 
+	<form action="/teacher/findStaffBySalary" method="post">
+		Enter salary: <input type="text" name="salary"><br>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
 
 	<form action="addEarning" method="post">
 		Enter Staff Id: <input type="text" name="staffId"><br>

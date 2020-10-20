@@ -42,4 +42,11 @@ public class TeacherController {
 		m.addAttribute("staff", staffRepo.getStaffById(staffId));
 		return "teacherInfo";
 	}
+	
+	@RequestMapping("/findStaffBySalary")
+	public String getStaffBySalary(@RequestParam int salary, Model m) {
+		System.out.println("Requested staff by ID...");
+		m.addAttribute("staffs", staffRepo.getStaffBySalary(salary));
+		return "showStaffs";
+	}
 }
