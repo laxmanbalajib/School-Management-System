@@ -31,6 +31,15 @@
 <body>
 	<div
 		style="position: absolute; top: 150px; bottom: 0; left: 0; right: 0; margin: auto;">
+		<p class=" d-flex justify-content-center"
+			style="background: #FF0000; color: white;">
+			<c:if test="${submission == 1 }">Your submission wasn't successful (Check your Student Id)</c:if>
+		</p>
+		<p class=" d-flex justify-content-center"
+			style="background: #00e500; color: white;">
+			<c:if test="${submission == 2}">Your submission was successful</c:if>
+		</p>
+
 		<div class="container">
 			<div class="card border-primary mb-3">
 				<div class="card-body">
@@ -53,7 +62,8 @@
 							<option>Transgender</option>
 							<option>Non Binary</option>
 						</select> <br>
-						<button type="submit" class="btn btn-primary my-3">Add Student</button>
+						<button type="submit" class="btn btn-primary my-3">Add
+							Student</button>
 					</form>
 					</p>
 				</div>

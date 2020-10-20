@@ -54,12 +54,19 @@ public class StudentController {
 		System.out.println("Student Form is requested...");
 		return "addStudent";
 	}
-	
+
 	@RequestMapping("/addStudentForm/submit")
-	public String addStudent(@RequestParam String gender, @RequestParam String studentName, @RequestParam int studentId) {
+	public String addStudent(@RequestParam String gender, @RequestParam String studentName, @RequestParam int studentId,
+			Model m) {
 		System.out.println("Student Form is requested...");
-		studentRepo.insertStudent(studentId, studentName, gender);
-		return "studentInfo";
+		try {
+			studentRepo.insertStudent(studentId, studentName, gender);
+		} catch (Exception e) {
+			m.addAttribute("submission", 1);
+			return "addStudent";
+		}
+		m.addAttribute("submission", 2);
+		return "addStudent";
 	}
 
 	/*
