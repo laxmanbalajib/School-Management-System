@@ -84,7 +84,45 @@
 
 				</tbody>
 			</table>
+			<form action="/student/findCoursesByStudent" method="post">
+				<input type="hidden" name="studentName" value="${student.getName()}">
+				<button type="submit" class="btn btn-primary"
+					value="${student.getId()}" name="studentId">Find Courses</button>
+			</form>
 		</c:if>
+
+		<c:if test="${hide == 2}">
+			<div class="d-flex justify-content-center my-3">
+				<p>
+					<b>Student Id: </b>${studentId} <span style="paddingLeft: 10px;"></span>
+					<b>Student Name:</b>${studentName}
+				</p>
+			</div>
+
+			<table class="table table-striped table-bordered my-3">
+				<thead>
+					<tr>
+						<th scope="col">Course Name</th>
+						<th scope="col">Course Id</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<c:forEach var="course" items="${courses}">
+						<tr>
+
+
+							<td>${course.getCourseName()}</td>
+							<td>${course.getCourseNumber()}</td>
+
+						</tr>
+					</c:forEach>
+
+
+				</tbody>
+			</table>
+		</c:if>
+
 	</div>
 
 

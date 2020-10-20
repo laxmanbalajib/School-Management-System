@@ -1,5 +1,7 @@
 package com.laxmanbalaji.mvc.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.laxmanbalaji.mvc.interfaces.CourseAndStudent;
 import com.laxmanbalaji.mvc.repo.CourseRepo;
 import com.laxmanbalaji.mvc.repo.EarnRepo;
 import com.laxmanbalaji.mvc.repo.StudentRepo;
@@ -38,6 +41,20 @@ public class StudentController {
 		System.out.println("Requested student by ID...");
 		m.addAttribute("hide", 1);
 		m.addAttribute("student", studentRepo.getStudentById(studentId));
+		return "studentInfo";
+	}
+
+	@RequestMapping("/findCoursesByStudent")
+	public String getCoursesByStudentId(@RequestParam int studentId, @RequestParam String studentName, Model m) {
+		System.out.println(studentId);
+		System.out.println("Requested courses by  Student ID...");
+
+		List<CourseAndStudent> courses = studentRepo.getCourses(studentId);
+		
+		m.addAttribute("hide", 2);
+		m.addAttribute("studentName", studentName);
+		m.addAttribute("studentId", studentId);
+		m.addAttribute("courses", courses);
 		return "studentInfo";
 	}
 
