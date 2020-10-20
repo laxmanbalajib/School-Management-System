@@ -12,18 +12,16 @@ import com.laxmanbalaji.mvc.repo.CourseRepo;
 import com.laxmanbalaji.mvc.repo.EarnRepo;
 import com.laxmanbalaji.mvc.repo.StaffRepo;
 
-
 @Controller
 @RequestMapping("/home")
 public class HomeController {
 
 	@Autowired
 	StaffRepo staffRepo;
-	
+
 	@Autowired
 	CourseRepo courseRepo;
-	
-	
+
 	@Autowired
 	EarnRepo earnRepo;
 
@@ -40,8 +38,7 @@ public class HomeController {
 		m.addAttribute("staffs", staffRepo.findAll());
 		return "showStaffs";
 	}
-	
-	
+
 	@RequestMapping("getCourses")
 	public String getCourses(Model m) {
 		System.out.println("Requested all courses...");
@@ -49,15 +46,14 @@ public class HomeController {
 		m.addAttribute("courses", courseRepo.findAll());
 		return "showCourses";
 	}
-	
-	
+
 	@RequestMapping("addEarning")
 	public String addEarning(@RequestParam int staffId, @RequestParam int salary, Model m) {
 		System.out.println("Requested all courses...");
 
 		earnRepo.updateEarning(staffId, salary);
 		m.addAttribute("staffs", earnRepo.getAllEarnByStaffId(staffId));
-		//m.addAttribute("courses", courseRepo.findAll());
+		// m.addAttribute("courses", courseRepo.findAll());
 		return "showStaffs";
 	}
 
@@ -68,22 +64,22 @@ public class HomeController {
 		m.addAttribute("staffs", earnRepo.getAllEarnByStaffId(id));
 		return "showStaffs";
 	}
-	
-	@GetMapping("getCourseByNumber")
-	public String getCourseByNumber(@RequestParam String courseNumber, Model m) {
-		System.out.println("Requested a courses by Course Number...");
 
-		m.addAttribute("courses", courseRepo.getOne(courseNumber));
+	@GetMapping("getAllCourses")
+	public String getCourseByNumber(Model m) {
+		System.out.println("Requested all courses...");
+
+		m.addAttribute("courses", courseRepo.getAllCourses());
 		return "showCourses";
 	}
-	
+
 	@GetMapping("getStaffByCourseNumber")
 	public String getStaffByCourseNumber(@RequestParam String courseNumber, Model m) {
 		System.out.println("Requested a courses by Course Number...");
 
-		//m.addAttribute("course", sqlRepo.getAll());
-		//m.addAttribute("staffs", courseRepo.getOne(courseNumber).getStaffs());
-		//m.addAttribute("students", courseRepo.getOne(courseNumber).getStudents());
+		// m.addAttribute("course", sqlRepo.getAll());
+		// m.addAttribute("staffs", courseRepo.getOne(courseNumber).getStaffs());
+		// m.addAttribute("students", courseRepo.getOne(courseNumber).getStudents());
 		return "showCoursesAndStaffs";
 	}
 

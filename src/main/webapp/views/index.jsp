@@ -16,7 +16,7 @@
 
 
 	<form action="addEarning" method="post">
-		Enter Staff Id: <input type="text" name="staffId"><br> 
+		Enter Staff Id: <input type="text" name="staffId"><br>
 		Enter Salary: <input type="text" name="salary">
 		<button type="submit">Submit</button>
 	</form>
@@ -41,6 +41,9 @@
 		<button type="submit">Submit</button>
 	</form>
 
+	<form action="home/getAllCourses">
+		<button type="submit">Submit</button>
+	</form>
 </body>
 
 </html>
