@@ -40,6 +40,15 @@ public class CourseController {
 		m.addAttribute("course", courseRepo.getCourseByNumber(courseNumber));
 		return "courseInfo";
 	}
+	
+	@RequestMapping("/findStudentsByCourseNumber")
+	public String getStudentsByCourseNumber(@RequestParam String courseNumber, Model m) {
+		System.out.println("Requested student by Course Number...");
+		m.addAttribute("hide", 2);
+		m.addAttribute("courseNumber",courseNumber);
+		m.addAttribute("students", courseRepo.getStudents(courseNumber));
+		return "courseInfo";
+	}
 
 	/*
 	@RequestMapping("/findAllCourses/Tuition")

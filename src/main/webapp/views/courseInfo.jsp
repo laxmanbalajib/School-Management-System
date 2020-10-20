@@ -26,17 +26,18 @@
 					</p>
 					<p class="card-text">
 					<form action="/course/findCourseByNumber" method="post">
-						Enter Course Number: <input type="text" name="courseNumber">
+						Find Details By Course Number: <input type="text" name="courseNumber">
 						<button type="submit" class="btn btn-primary">Submit</button>
 					</form>
-					</p>
 					<p class="card-text">
-					<form action="/course/findCourseBySalary" method="post">
-						Enter salary range: <input type="text" name="salaryStart">
-						to <input type="text" name="salaryEnd">
+					<form action="/course/findStudentsByCourseNumber" method="post">
+
+						Find Students Enrolled By Course Number: <input type="text"
+							name="courseNumber">
 						<button type="submit" class="btn btn-primary">Submit</button>
 					</form>
 					</p>
+
 					<p class="card-text">
 					<form action="course/addCourseForm">
 
@@ -76,9 +77,39 @@
 				</tbody>
 			</table>
 		</c:if>
+
 		<br>
 
+		<c:if test="${hide == 2}">
+			<p class="d-flex justify-content-center">Course Number 
+				${courseNumber}</p>
+			<table class="table table-striped table-bordered my-3">
+				<thead>
+					<tr>
+						<th scope="col">Student Name</th>
+						<th scope="col">Student Id</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<c:forEach var="student" items="${students}">
+						<tr>
+
+
+							<td>${student.getName()}</td>
+							<td>${student.getId()}</td>
+
+						</tr>
+					</c:forEach>
+
+
+				</tbody>
+			</table>
+		</c:if>
+
 	</div>
+
+
 </body>
 
 </html>
