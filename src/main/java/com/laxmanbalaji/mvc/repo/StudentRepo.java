@@ -2,8 +2,10 @@ package com.laxmanbalaji.mvc.repo;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.laxmanbalaji.mvc.interfaces.StudentAndTuition;
 import com.laxmanbalaji.mvc.model.Student;
@@ -22,4 +24,9 @@ public interface StudentRepo extends CrudRepository<Student, Integer>{
 	
 	@Query(value = "SELECT id, name, tuition, paid FROM Student,TuitionFee WHERE Student.id = TuitionFee.studentId", nativeQuery = true)
 	List<StudentAndTuition> getTuition();
+	
+	@Modifying
+	@Query(value = "INSERT INTO Student(id, name, gender) VALUES(:studentId, :studentName, :gender)", nativeQuery = true)
+	@Transactional
+	void insertStudent(int studentId, String studentName, String gender);
 }

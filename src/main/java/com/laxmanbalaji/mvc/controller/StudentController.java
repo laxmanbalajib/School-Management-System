@@ -34,7 +34,7 @@ public class StudentController {
 	}
 
 	@RequestMapping("/findStudentById")
-	public String getstudentById(@RequestParam int studentId, Model m) {	
+	public String getstudentById(@RequestParam int studentId, Model m) {
 		System.out.println("Requested student by ID...");
 		m.addAttribute("hide", 1);
 		m.addAttribute("student", studentRepo.getStudentById(studentId));
@@ -48,6 +48,20 @@ public class StudentController {
 		m.addAttribute("students", studentRepo.getTuition());
 		return "showStudentsTotal";
 	}
+
+	@RequestMapping("/addStudentForm")
+	public String addStudentForm() {
+		System.out.println("Student Form is requested...");
+		return "addStudent";
+	}
+	
+	@RequestMapping("/addStudentForm/submit")
+	public String addStudent(@RequestParam String gender, @RequestParam String studentName, @RequestParam int studentId) {
+		System.out.println("Student Form is requested...");
+		studentRepo.insertStudent(studentId, studentName, gender);
+		return "studentInfo";
+	}
+
 	/*
 	 * @RequestMapping("/findstudentBySalary") public String
 	 * getstudentBySalary(@RequestParam int salaryStart, @RequestParam int
