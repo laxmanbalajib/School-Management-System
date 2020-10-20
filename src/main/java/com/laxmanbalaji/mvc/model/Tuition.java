@@ -21,49 +21,19 @@ public class Tuition {
 
 	private int tuition;
 	private int paid;
+	
+	@Override
+	public String toString() {
+		return "Tuition [studentId=" + studentId + ", tuition=" + tuition + ", paid=" + paid + "]";
+	}
 
+	/*
 	@OneToOne
 	@JoinColumn(name = "studentId")
 	@MapsId
-	private Student student;
+	private Student student; */
 
-	public int getStudentId() {
-		return studentId;
-	}
-
-	public void setStudentId(int studentId) {
-		this.studentId = studentId;
-	}
-
-	public int getTuition() {
-		return tuition;
-	}
-
-	public void setTuition(int tuition) {
-		this.tuition = tuition;
-	}
-
-	public int getPaid() {
-		return paid;
-	}
-
-	public void setPaid(int paid) {
-		this.paid = paid;
-	}
-
-	public Student getStudent() {
-		return student;
-	}
-
-	public void setStudent(Student student) {
-		this.student = student;
-	}
-
-	@Override
-	public String toString() {
-		return "Tuition [studentId=" + studentId + ", tuition=" + tuition + ", paid=" + paid + ", student=" + student
-				+ "]";
-	}
+	
 	
 	
 

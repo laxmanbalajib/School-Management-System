@@ -1,12 +1,11 @@
 package com.laxmanbalaji.mvc.repo;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
-import com.laxmanbalaji.mvc.model.Earn;
 import com.laxmanbalaji.mvc.model.Tuition;
 
 
 
-public interface TuitionFeeRepo extends JpaRepository<Tuition, Integer>{
+public interface TuitionFeeRepo extends CrudRepository<Tuition, Integer>{
 
 }

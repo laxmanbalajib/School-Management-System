@@ -24,17 +24,44 @@ public class Staff {
 	private String name;
 	private String gender;
 
+	/*
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
 	@JoinTable(name = "Teach", joinColumns = {
 			@JoinColumn(name = "staffId", referencedColumnName = "id", nullable = false, updatable = false) }, inverseJoinColumns = {
 					@JoinColumn(name = "courseNumber", referencedColumnName = "courseNumber", nullable = false, updatable = false) })
 	private Set<Course> courses = new HashSet<>(); // use this name in mapping
 
-    @OneToOne(mappedBy = "staff")
+
+	@ManyToOne(mappedBy = "staff", cascade = CascadeType.ALL, orphanRemoval = true)
     private Earn earning;
 	
 	public Earn getEarning() {
 		return earning;
+	}
+	*/
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 	public Staff() {
@@ -47,17 +74,12 @@ public class Staff {
 		this.gender = gender;
 	}
 
-	/*
-	 * @ManyToMany
-	 * 
-	 * @JoinTable(name="person_exam", joinColumns=@JoinColumn(name="personId"),
-	 * inverseJoinColumns=@JoinColumn(name="examId")) private Collection<Exams>
-	 * exams;
-	 */
-
 	@Override
 	public String toString() {
 		return "Staff [id=" + id + ", name=" + name + ", gender=" + gender + "]";
 	}
+
+
+
 
 }

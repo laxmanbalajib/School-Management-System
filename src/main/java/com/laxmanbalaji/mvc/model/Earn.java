@@ -26,41 +26,18 @@ public class Earn {
 
 	private int salary;
 
+	@Override
+	public String toString() {
+		return "Earn [staffId=" + staffId + ", salary=" + salary + "]";
+	}
+
+	/*
     @OneToOne
     @JoinColumn(name = "staffId")
     @MapsId
-    private Staff staff;
+    private Staff staff; */
 
-	public int getStaffId() {
-		return staffId;
-	}
-
-	public void setStaffId(int staffId) {
-		this.staffId = staffId;
-	}
-
-	public int getSalary() {
-		return salary;
-	}
-
-	public void setSalary(int salary) {
-		this.salary = salary;
-	}
-
-	public Staff getStaff() {
-		return staff;
-	}
-
-	public void setStaff(Staff staff) {
-		this.staff = staff;
-	}
-
-	@Override
-	public String toString() {
-		return "Earn [staffId=" + staffId + ", salary=" + salary + ", staff=" + staff + "]";
-	}
-
-
+	
     
     
 }

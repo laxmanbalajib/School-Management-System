@@ -1,4 +1,4 @@
-package com.laxmanbalaji.mvc;
+package com.laxmanbalaji.mvc.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +14,7 @@ import com.laxmanbalaji.mvc.repo.StaffRepo;
 
 
 @Controller
+@RequestMapping("/home")
 public class HomeController {
 
 	@Autowired
@@ -26,7 +27,7 @@ public class HomeController {
 	@Autowired
 	EarnRepo earnRepo;
 
-	@RequestMapping("/")
+	@RequestMapping("")
 	public String home() {
 		System.out.println("Home page is requested...");
 		return "index";
@@ -81,8 +82,8 @@ public class HomeController {
 		System.out.println("Requested a courses by Course Number...");
 
 		//m.addAttribute("course", sqlRepo.getAll());
-		m.addAttribute("staffs", courseRepo.getOne(courseNumber).getStaffs());
-		m.addAttribute("students", courseRepo.getOne(courseNumber).getStudents());
+		//m.addAttribute("staffs", courseRepo.getOne(courseNumber).getStaffs());
+		//m.addAttribute("students", courseRepo.getOne(courseNumber).getStudents());
 		return "showCoursesAndStaffs";
 	}
 
