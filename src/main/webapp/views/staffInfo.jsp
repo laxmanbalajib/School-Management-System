@@ -16,7 +16,7 @@
 			<div class="card-body">
 				<h4 class="card-title d-flex justify-content-center">STAFF INFO PAGE</h4>
 				<p class="card-text">
-				<form action="/teacher/findAllStaff" method="post">
+				<form action="/staff/findAllStaff" method="post">
 					<button type="submit" class="btn btn-primary">Show All
 						Staff</button>
 				</form>
@@ -27,7 +27,7 @@
 	</div>
 
 
-	<form action="/teacher/findStaffById" method="post">
+	<form action="/staff/findStaffById" method="post">
 		Enter Staff Id: <input type="text" name="staffId"><br>
 		<button type="submit" class="btn btn-primary">Submit</button>
 	</form>
@@ -53,7 +53,7 @@
 		</table>
 	</c:if>
 
-	<form action="/teacher/findStaffBySalary" method="post">
+	<form action="/staff/findStaffBySalary" method="post">
 		Enter salary range: <input type="text" name="salaryStart"> to
 		<input type="text" name="salaryEnd"><br>
 		<button type="submit" class="btn btn-primary">Submit</button>
