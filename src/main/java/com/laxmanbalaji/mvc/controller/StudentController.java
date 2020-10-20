@@ -85,6 +85,26 @@ public class StudentController {
 		m.addAttribute("submission", 2);
 		return "addStudent";
 	}
+	
+	@RequestMapping("/updateStudentForm")
+	public String updateStudentForm() {
+		System.out.println("Student Form is requested...");
+		return "updateStudentInfo";
+	}
+	
+	@RequestMapping("/updateStudentForm/submit")
+	public String updateStudent(@RequestParam String gender, @RequestParam String studentName, @RequestParam int studentId,
+			Model m) {
+		System.out.println("Student Form is requested...");
+		try {
+			studentRepo.updateStudent(studentId, studentName, gender);
+		} catch (Exception e) {
+			m.addAttribute("submission", 1);
+			return "updateStudentInfo";
+		}
+		m.addAttribute("submission", 2);
+		return "updateStudentInfo";
+	}
 
 	/*
 	 * @RequestMapping("/findstudentBySalary") public String

@@ -32,4 +32,9 @@ public interface StudentRepo extends CrudRepository<Student, Integer> {
 
 	@Query(value = "SELECT * FROM Student, (SELECT * FROM Course NATURAL JOIN Attend) as B WHERE Student.id = B.studentId AND Student.id = :studentId", nativeQuery = true)
 	List<CourseAndStudent> getCourses(int studentId);
+
+	@Modifying
+	@Query(value = "UPDATE Student SET gender = :gender, name = :studentName WHERE id = :studentId", nativeQuery = true)
+	@Transactional
+	void updateStudent(int studentId, String studentName, String gender);
 }

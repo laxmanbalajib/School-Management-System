@@ -28,4 +28,6 @@ public interface CourseRepo extends CrudRepository<Course, String> {
 	@Query(value = "INSERT INTO Course(courseNumber, courseName, courseFee) VALUES(:courseNumber, :courseName, :courseFee)", nativeQuery = true)
 	@Transactional
 	void insertCourse(int courseNumber, String courseName, int courseFee);
+	
+
 }

@@ -61,6 +61,15 @@
 
 					</p>
 
+					<p class="card-text">
+					<form action="student/updateStudentForm">
+
+						<button type="submit" class="btn btn-primary">Form for updating Student</button>
+					</form>
+
+					</p>
+
+
 				</div>
 			</div>
 		</div>
