@@ -49,6 +49,27 @@ public class CourseController {
 		m.addAttribute("students", courseRepo.getStudents(courseNumber));
 		return "courseInfo";
 	}
+	
+	@RequestMapping("/addCourseForm")
+	public String addCourseForm() {
+		System.out.println("Course Form is requested...");
+		return "addCourse";
+	}
+	
+	@RequestMapping("/addCourseForm/submit")
+	public String addCourse(@RequestParam String courseName, @RequestParam int courseFee, @RequestParam int courseNumber,
+			Model m) {
+		System.out.println("Course Form is submitted...");
+		try {
+			courseRepo.insertCourse(courseNumber, courseName, courseFee);;
+		} catch (Exception e) {
+			m.addAttribute("submission", 1);
+			return "addCourse";
+		}
+		m.addAttribute("submission", 2);
+		return "addCourse";
+	}
+
 
 	/*
 	@RequestMapping("/findAllCourses/Tuition")
