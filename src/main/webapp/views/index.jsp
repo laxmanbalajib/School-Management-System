@@ -5,45 +5,41 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	rel="stylesheet">
 </head>
 <body>
-	<p>Hello world</p>
-	<form action="addAlien3" method="post">
-		Enter name: <input type="text" name="name"><br> Enter
-		age: <input type="text" name="age">
-		<button type="submit">Submit</button>
-	</form>
+	<div
+		style="position: absolute; top: 120px; bottom: 0; left: 0; right: 0; margin: auto;">
+		<div class="container">
+			<div class="card">
+				<div class="card-body">
+					<h4 class="card-title d-flex justify-content-center">School
+						Management System</h4>
+					<p class="card-text">
+					<form action="/course/" method="post">
+						<button type="submit" class="btn btn-primary">Course Info
+							Page</button>
+					</form>
+					</p>
+					<p class="card-text">
+					<form action="/staff/" method="post">
+						<button type="submit" class="btn btn-primary">Staff Info
+							Page</button>
+					</form>
+					</p>
+					<p class="card-text">
+					<form action="/student/" method="post">
+						<button type="submit" class="btn btn-primary">Student
+							Info Page</button>
+					</form>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
 
-
-	<form action="addEarning" method="post">
-		Enter Staff Id: <input type="text" name="staffId"><br>
-		Enter Salary: <input type="text" name="salary">
-		<button type="submit">Submit</button>
-	</form>
-
-	<form action="getStaffById" method="get">
-		Enter staff id: <input type="text" name="id">
-		<button type="submit">Submit</button>
-	</form>
-
-	<form action="getStaffByName" method="get">
-		Enter name: <input type="text" name="name">
-		<button type="submit">Submit</button>
-	</form>
-
-	<form action="getCourseByNumber" method="get">
-		Enter courseNumber: <input type="text" name="courseNumber">
-		<button type="submit">Submit</button>
-	</form>
-
-	<form action="getStaffByCourseNumber" method="get">
-		find staffs by courseNumber: <input type="text" name="courseNumber">
-		<button type="submit">Submit</button>
-	</form>
-
-	<form action="home/getAllCourses">
-		<button type="submit">Submit</button>
-	</form>
 </body>
 
 </html>
